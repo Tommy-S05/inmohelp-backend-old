@@ -9,7 +9,15 @@ use Illuminate\Database\Eloquent\Builder;
 /**
  * @mixin Builder
  */
-class Property extends Model
+class PropertyType extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'slug',
+        'description',
+        'image',
+        'status',
+    ];
 }

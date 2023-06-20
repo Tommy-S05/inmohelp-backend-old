@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Property;
 use App\Http\Requests\StorePropertyRequest;
 use App\Http\Requests\UpdatePropertyRequest;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class PropertyController extends Controller
 {
@@ -13,15 +15,13 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        $properties = Property::all(['id', 'name', 'slug', 'city', 'purpose', 'price', 'area', 'bedrooms', 'bathrooms', 'garages']);
+        $data = $properties;
+        return response()->json([
+            'success' => true,
+            'message' => 'Properties retrieved successfully.',
+            'data' => $data,
+        ]);
     }
 
     /**
@@ -29,7 +29,19 @@ class PropertyController extends Controller
      */
     public function store(StorePropertyRequest $request)
     {
-        //
+        //        dd($request->all());
+        //        $user = User::create($request->all());
+        //        $user->update(['password' => Hash::make($request->password)]);
+        //        return response()->json([
+        //            'success' => true,
+        //            'message' => 'Property created successfully.',
+        //            'data' => $user,
+        //        ]);
+        return response()->json([
+            'success' => true,
+            'message' => 'Property created successfully.',
+            'data' => $request->all(),
+        ]);
     }
 
     /**
@@ -37,15 +49,7 @@ class PropertyController extends Controller
      */
     public function show(Property $property)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Property $property)
-    {
-        //
+        return response()->json($property);
     }
 
     /**
@@ -61,6 +65,10 @@ class PropertyController extends Controller
      */
     public function destroy(Property $property)
     {
-        //
+        $property->delete();
+        return response()->json([
+            'success' => true,
+            'message' => 'Property deleted successfully.',
+        ]);
     }
 }

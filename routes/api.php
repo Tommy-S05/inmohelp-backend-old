@@ -14,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+
+Route::get('/properties', [\App\Http\Controllers\PropertyController::class, 'index']);
+Route::post('/properties', [\App\Http\Controllers\PropertyController::class, 'store']);
+Route::get('/properties/{property}', [\App\Http\Controllers\PropertyController::class, 'show']);
+
+Route::post('/login', [App\Http\Controllers\AuthController::class, 'login']);
+Route::post('/register', [App\Http\Controllers\AuthController::class, 'register']);
+Route::delete('/logout', [App\Http\Controllers\AuthController::class, 'logout'])->middleware('auth:sanctum');
