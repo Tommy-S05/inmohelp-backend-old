@@ -20,5 +20,8 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         Property::factory(15)->create();
+        $this->call([
+            PropertyTypeSeeder::class,
+        ]);
     }
 }

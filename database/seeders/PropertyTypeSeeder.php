@@ -68,6 +68,23 @@ class PropertyTypeSeeder extends Seeder
             'status' => 'ACTIVE'
         ]);
 
+        PropertyType::create([
+            'name' => 'Casa de Verano',
+            'slug' => Str::slug('Casa de Verano', '-'),
+            'description' => 'casa de verano',
+            'image' => '/assets/categories/category-casadeverano.png',
+            'status' => 'ACTIVE'
+        ]);
+
+        PropertyType::create([
+            'name' => 'Almacenes',
+            //            'slug' => Str::slug('Lenovo L340 Gaming', '-'),
+            'slug' => 'almacenes',
+            'description' => 'almacenes',
+            'image' => '/assets/categories/category-almacenes2.png',
+            'status' => 'ACTIVE'
+        ]);
+
         //        PropertyType::create([
         //            'name' => 'Terreno',
         //            //            'slug' => Str::slug('Lenovo L340 Gaming', '-'),

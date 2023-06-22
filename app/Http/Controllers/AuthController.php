@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+//header('Access-Control-Allow-Credentials: true');
 
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -22,7 +23,7 @@ class AuthController extends Controller
                 'result' => false,
                 'message' => 'Error al registrar usuario',
                 'errors' => $validator->errors()
-            ]);
+            ], 422);
         }
 
         if(Auth::attempt($request->only('email', 'password'))) {

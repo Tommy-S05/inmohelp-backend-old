@@ -13,16 +13,25 @@ class PropertyTypeController extends Controller
      */
     public function index()
     {
-        //
+        //        $propertyTypes = PropertyType::orderBy('id', 'desc');
+        $propertyTypes = PropertyType::orderBy('id', 'asc')->take(5)->get();
+        return response()->json([
+            'success' => true,
+            'message' => 'Listado de tipos de propiedades, primeras 5',
+            'data' => $propertyTypes
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function getAll()
     {
-        //
+        $propertyTypes = PropertyType::orderBy('id', 'asc')->get();
+        return response()->json([
+            'success' => true,
+            'message' => 'Listado de tipos de propiedades',
+            'data' => $propertyTypes
+        ]);
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -40,13 +49,6 @@ class PropertyTypeController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(PropertyType $propertyType)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.

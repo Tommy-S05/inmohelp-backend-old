@@ -18,10 +18,17 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 
+//Route::get('/user', [\App\Http\Controllers\UserController::class, 'userAuth']);
+Route::get('/user', [\App\Http\Controllers\UserController::class, 'userAuth'])->middleware('auth:sanctum');
+
 Route::get('/properties', [\App\Http\Controllers\PropertyController::class, 'index']);
+Route::get('/properties/outstanding', [\App\Http\Controllers\PropertyController::class, 'outstanding']);
 Route::post('/properties', [\App\Http\Controllers\PropertyController::class, 'store']);
 Route::get('/properties/{property}', [\App\Http\Controllers\PropertyController::class, 'show']);
 
 Route::post('/login', [App\Http\Controllers\AuthController::class, 'login']);
 Route::post('/register', [App\Http\Controllers\AuthController::class, 'register']);
 Route::delete('/logout', [App\Http\Controllers\AuthController::class, 'logout'])->middleware('auth:sanctum');
+
+Route::get('/property-types', [\App\Http\Controllers\PropertyTypeController::class, 'index']);
+Route::get('/property-types/all', [\App\Http\Controllers\PropertyTypeController::class, 'getAll']);

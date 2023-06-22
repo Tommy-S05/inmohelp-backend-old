@@ -24,24 +24,31 @@ class PropertyController extends Controller
         ]);
     }
 
+    public function outstanding()
+    {
+        //outstanding properties
+        //        $properties = Property::where('outstanding', 1)->get(['id', 'name', 'slug', 'city', 'purpose', 'price', 'area', 'bedrooms', 'bathrooms', 'garages']);
+        $properties = Property::orderBy('views', 'desc')
+            ->take(5)
+            ->get(['id', 'name', 'slug', 'city', 'purpose', 'price', 'area', 'bedrooms', 'bathrooms', 'garages', 'views']);
+        $data = $properties;
+        return response()->json([
+            'success' => true,
+            'message' => 'Properties retrieved successfully.',
+            'data' => $data,
+        ]);
+    }
+
     /**
      * Store a newly created resource in storage.
      */
     public function store(StorePropertyRequest $request)
     {
-        //        dd($request->all());
-        //        $user = User::create($request->all());
-        //        $user->update(['password' => Hash::make($request->password)]);
         //        return response()->json([
         //            'success' => true,
         //            'message' => 'Property created successfully.',
-        //            'data' => $user,
+        //            'data' => $request->all(),
         //        ]);
-        return response()->json([
-            'success' => true,
-            'message' => 'Property created successfully.',
-            'data' => $request->all(),
-        ]);
     }
 
     /**
