@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\PropertyType;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,13 +22,16 @@ class PropertyFactory extends Factory
             'code' => $this->faker->unique()->numberBetween(0001, 9999),
             'name' => $this->faker->unique()->sentence(2),
             'slug' => $this->faker->unique()->slug,
+            //            'user_id' => 1,
+            'user_id' => User::inRandomOrder()->value('id') ?: factory(User::class),
+            //            "property_type_id" => 1,
+            "property_type_id" => PropertyType::inRandomOrder()->value('id') ?: factory(PropertyType::class),
             'description' => $this->faker->paragraph(12),
             'city' => $this->faker->city,
             'sector' => $this->faker->streetName,
             'address' => $this->faker->address,
             //            'map' => $this->faker->url,
             'purpose' => $this->faker->randomElement(['sale', 'rent']),
-            'property_type' => $this->faker->randomElement(['Casa', 'Apartamento', 'Local', 'Terreno', 'Oficina', 'Edificio', 'Finca', 'Bodega', 'Consultorio']),
             'price' => $this->faker->numberBetween(1000000, 20000000),
             'area' => $this->faker->numberBetween(50, 500),
             'bedrooms' => $this->faker->numberBetween(1, 5),

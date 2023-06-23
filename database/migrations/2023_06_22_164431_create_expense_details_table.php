@@ -10,13 +10,15 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('property_types', function(Blueprint $table) {
+        Schema::create('expense_details', function(Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
-            $table->string('slug')->unique();
-            $table->string('description');
-            $table->string('image');
+            $table->foreignId('expense_id')->constrained();
+            $table->foreignId('expense_subcategory_id')->constrained();
+            //            $table->foreignId('expense_category_id')->constrained();
+            $table->decimal('amount', 10, 2);
+            $table->string('description')->nullable();
             $table->enum('status', ['ACTIVE', 'DEACTIVATE'])->default('ACTIVE');
+            //            $table->date('date');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('property_types');
+        Schema::dropIfExists('expense_details');
     }
 };
