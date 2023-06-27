@@ -32,3 +32,10 @@ Route::delete('/logout', [App\Http\Controllers\AuthController::class, 'logout'])
 
 Route::get('/property-types', [\App\Http\Controllers\PropertyTypeController::class, 'index']);
 Route::get('/property-types/all', [\App\Http\Controllers\PropertyTypeController::class, 'getAll']);
+
+//Route::get('/property-features', [\App\Http\Controllers\PropertyFeatureController::class, 'index']);
+
+Route::post('/financials', [\App\Http\Controllers\FinancialController::class, 'store'])->middleware('auth:sanctum');
+Route::post('/monthly/payments', [\App\Http\Controllers\FinancialController::class, 'monthlyPayments']);
+Route::get('/monthly/budget', [\App\Http\Controllers\FinancialController::class, 'monthlyBudget']);
+Route::get('/affordable/properties', [\App\Http\Controllers\FinancialController::class, 'affordableProperties']);

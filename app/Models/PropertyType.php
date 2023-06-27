@@ -20,4 +20,9 @@ class PropertyType extends Model
         'image',
         'status',
     ];
+
+    public function properties()
+    {
+        return $this->hasMany(Property::class);
+    }
 }

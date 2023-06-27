@@ -10,12 +10,13 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('income_categories', function(Blueprint $table) {
+        Schema::create('categories', function(Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
             $table->string('slug')->unique();
+            $table->enum('type', ['income', 'expense']);
             $table->string('description')->nullable();
-            $table->enum('status', ['ACTIVE', 'DEACTIVATE'])->default('ACTIVE');
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('income_categories');
+        Schema::dropIfExists('categories');
     }
 };

@@ -10,12 +10,16 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('expenses', function(Blueprint $table) {
+        Schema::create('accounts', function(Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->decimal('total', 10, 2);
-            $table->string('description')->nullable();
-            $table->enum('status', ['ACTIVE', 'DEACTIVATE'])->default('ACTIVE');
+            //            $table->enum('type', ['income', 'expense']);
+            //            $table->decimal('total', 16, 6)->nullable();
+            $table->decimal('total_incomes', 16, 6);
+            $table->decimal('total_expenses', 16, 6);
+            $table->decimal('budget', 16, 6);
+            //            $table->string('description')->nullable();
+            $table->boolean('active')->default(true);
             //            $table->date('date');
             $table->timestamps();
         });
@@ -26,6 +30,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('expenses');
+        Schema::dropIfExists('accounts');
     }
 };

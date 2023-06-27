@@ -21,6 +21,9 @@ class DatabaseSeeder extends Seeder
         ]);
         $this->call([
             PropertyTypeSeeder::class,
+            CategorySeeder::class,
+            SubCategorySeeder::class,
+            SettingSeeder::class,
         ]);
         Property::factory(15)->create();
     }
