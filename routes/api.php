@@ -26,16 +26,24 @@ Route::get('/properties/outstanding', [\App\Http\Controllers\PropertyController:
 Route::post('/properties', [\App\Http\Controllers\PropertyController::class, 'store']);
 Route::get('/properties/{property}', [\App\Http\Controllers\PropertyController::class, 'show']);
 
-Route::post('/login', [App\Http\Controllers\AuthController::class, 'login']);
-Route::post('/register', [App\Http\Controllers\AuthController::class, 'register']);
-Route::delete('/logout', [App\Http\Controllers\AuthController::class, 'logout'])->middleware('auth:sanctum');
+//Route::post('/login', [App\Http\Controllers\AuthController::class, 'login']);
+//Route::post('/register', [App\Http\Controllers\AuthController::class, 'register']);
+//Route::delete('/logout', [App\Http\Controllers\AuthController::class, 'logout'])->middleware('auth:sanctum');
 
 Route::get('/property-types', [\App\Http\Controllers\PropertyTypeController::class, 'index']);
 Route::get('/property-types/all', [\App\Http\Controllers\PropertyTypeController::class, 'getAll']);
 
 //Route::get('/property-features', [\App\Http\Controllers\PropertyFeatureController::class, 'index']);
 
-Route::post('/financials', [\App\Http\Controllers\FinancialController::class, 'store'])->middleware('auth:sanctum');
-Route::post('/monthly/payments', [\App\Http\Controllers\FinancialController::class, 'monthlyPayments']);
+//Route::get('/account', [\App\Http\Controllers\AccountController::class, 'index'])->middleware('auth:sanctum');
+Route::get('/account', [\App\Http\Controllers\AccountController::class, 'index']);
+Route::post('/account', [\App\Http\Controllers\AccountController::class, 'store'])->middleware('auth:sanctum');
+
+
+Route::get('/monthly/payments', [\App\Http\Controllers\FinancialController::class, 'monthlyPayments']);
 Route::get('/monthly/budget', [\App\Http\Controllers\FinancialController::class, 'monthlyBudget']);
+Route::get('/monthly2/budget', [\App\Http\Controllers\FinancialController::class, 'monthlyBudget2']);
 Route::get('/affordable/properties', [\App\Http\Controllers\FinancialController::class, 'affordableProperties']);
+Route::get('/affordable2/properties', [\App\Http\Controllers\FinancialController::class, 'affordableProperties2']);
+
+Route::get('/categories', [\App\Http\Controllers\CategoryController::class, 'index']);

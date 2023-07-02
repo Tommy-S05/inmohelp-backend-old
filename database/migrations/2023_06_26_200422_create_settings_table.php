@@ -13,8 +13,8 @@ return new class extends Migration {
         Schema::create('settings', function(Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->decimal('interest_rate', 8, 2)->default(0.00);
-            $table->decimal('down_payment_available', 16, 4)->default(0.00);
+            $table->float('interest_rate', 8, 2)->default(0.00);
+            $table->float('down_payment_available', 16, 4)->default(0.00);
             $table->integer('loan_term')->default(0);
             //            $table->decimal('down_payment_required', 2, 2)->default(0.00);
             //            $table->decimal('closing_cost', 2, 2)->default(0.00);

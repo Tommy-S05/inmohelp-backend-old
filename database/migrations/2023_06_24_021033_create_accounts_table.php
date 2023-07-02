@@ -15,9 +15,9 @@ return new class extends Migration {
             $table->foreignId('user_id')->constrained();
             //            $table->enum('type', ['income', 'expense']);
             //            $table->decimal('total', 16, 6)->nullable();
-            $table->decimal('total_incomes', 16, 6);
-            $table->decimal('total_expenses', 16, 6);
-            $table->decimal('budget', 16, 6);
+            $table->float('total_incomes', 16, 6);
+            $table->float('total_expenses', 16, 6);
+            $table->float('budget', 16, 6);
             //            $table->string('description')->nullable();
             $table->boolean('active')->default(true);
             //            $table->date('date');

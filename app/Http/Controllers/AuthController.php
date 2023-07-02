@@ -21,14 +21,14 @@ class AuthController extends Controller
         if($validator->fails()) {
             return response()->json([
                 'result' => false,
-                'message' => 'Error al registrar usuario',
+                'message' => 'Error al logear el usuario usuario',
                 'errors' => $validator->errors()
             ], 422);
         }
 
         if(Auth::attempt($request->only('email', 'password'))) {
             //            $permissionName = array();
-            //            $request->session()->regenerate();
+            $request->session()->regenerate();
             $user = User::where('email', '=', $request['email'])->firstOrFail();
             //            //                $token = $user->createToken('auth_token')->plainTextToken;
             //            $permissions = $user->getAllPermissions();
@@ -54,13 +54,13 @@ class AuthController extends Controller
         ], 401);
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
-        //        Auth::logout();
-        //        $request->session()->invalidate();
-        //        $request->session()->regenerateToken();
-
         auth()->user()->tokens()->delete();
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
         return response()->json([
             'result' => true,
             'message' => 'Sesión cerrada',
@@ -90,6 +90,8 @@ class AuthController extends Controller
             'password' => Hash::make($request->password)
         ]);
 
+        Auth::login($user);
+        $request->session()->regenerate();
         //            $token = $user->createToken('auth_token')->plainTextToken;
         //        $token = $user->createToken('auth_token', ['products.index'])->plainTextToken;
         $token = $user->createToken('auth_token')->plainTextToken;

@@ -24,7 +24,7 @@ return new class extends Migration {
             $table->text('map')->nullable();
             $table->enum('purpose', ['sale', 'rent']);
             //            $table->string('property_type'); //Casa, Apartamento, Local, Terreno, Oficina, Edificio, Finca, Bodega, Lote, Consultorio, Casa Campestre, Casa Lote, Casa en Condominio, Casa en Conjunto Cerrado, Casa en Unidad Cerrada, Casa en Unidad Residencial
-            $table->decimal('price', 12, 2);
+            $table->float('price', 12, 2);
             $table->double('area');
             $table->float('bedrooms');
             $table->float('bathrooms');

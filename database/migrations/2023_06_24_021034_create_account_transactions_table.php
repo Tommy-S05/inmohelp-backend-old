@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->foreignId('account_id')->constrained()->cascadeOnDelete();
             $table->foreignId('sub_category_id')->constrained();
             //            $table->enum('sign', [1, -1]);
-            $table->decimal('amount', 16, 6);
+            $table->float('amount', 16, 6);
             $table->string('description')->nullable();
             $table->boolean('active')->default(true);
             $table->timestamps();
