@@ -7,6 +7,7 @@ use App\Http\Requests\UpdatePropertyRequest;
 use App\Models\Property;
 use App\QueryFilters\Property\BathroomsFilter;
 use App\QueryFilters\Property\BedroomsFilter;
+use App\QueryFilters\Property\GaragesFilter;
 use App\QueryFilters\Property\MaxPriceFilter;
 use App\QueryFilters\Property\MinPriceFilter;
 use App\QueryFilters\Property\NeighborhoodFilter;
@@ -31,6 +32,7 @@ class PropertyController extends Controller
                 NeighborhoodFilter::class,
                 BedroomsFilter::class,
                 BathroomsFilter::class,
+                GaragesFilter::class,
                 MinPriceFilter::class,
                 MaxPriceFilter::class,
             ])
