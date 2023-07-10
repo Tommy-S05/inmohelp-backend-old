@@ -24,6 +24,10 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             SubCategorySeeder::class,
             SettingSeeder::class,
+            RegionSeeder::class,
+            ProvinceSeeder::class,
+            MunicipalitySeeder::class,
+            NeighborhoodSeeder::class,
         ]);
         Property::factory(15)->create();
     }

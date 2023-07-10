@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Property;
 use App\Http\Requests\StorePropertyRequest;
 use App\Http\Requests\UpdatePropertyRequest;
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
+use App\Models\Property;
+use App\QueryFilters\Property\BathroomsFilter;
+use App\QueryFilters\Property\BedroomsFilter;
+use App\QueryFilters\Property\MaxPriceFilter;
+use App\QueryFilters\Property\MinPriceFilter;
+use App\QueryFilters\Property\NeighborhoodFilter;
+use App\QueryFilters\Property\ProvinceFilter;
+use App\QueryFilters\Property\PurposeFilter;
+use Illuminate\Pipeline\Pipeline;
 
 class PropertyController extends Controller
 {
@@ -15,7 +21,21 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        $properties = Property::all(['id', 'name', 'slug', 'city', 'purpose', 'price', 'area', 'bedrooms', 'bathrooms', 'garages']);
+        //        $properties = Property::all(['id', 'name', 'slug', 'city', 'purpose', 'price', 'area', 'bedrooms', 'bathrooms', 'garages']);
+        //        $properties =
+        $properties = app(Pipeline::class)
+            ->send(Property::query())
+            ->through([
+                PurposeFilter::class,
+                ProvinceFilter::class,
+                NeighborhoodFilter::class,
+                BedroomsFilter::class,
+                BathroomsFilter::class,
+                MinPriceFilter::class,
+                MaxPriceFilter::class,
+            ])
+            ->thenReturn()
+            ->get(['id', 'name', 'slug', 'city', 'purpose', 'price', 'area', 'bedrooms', 'bathrooms', 'garages']);
         $data = $properties;
         return response()->json([
             'success' => true,

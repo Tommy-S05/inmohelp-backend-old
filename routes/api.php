@@ -14,12 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//    return $request->user();
-//});
+Route::middleware('auth:sanctum')->get('/user', function(Request $request) {
+    return $request->user()->only(['id', 'name', 'email']);
+});
 
 //Route::get('/user', [\App\Http\Controllers\UserController::class, 'userAuth']);
-Route::get('/user', [\App\Http\Controllers\UserController::class, 'userAuth'])->middleware('auth:sanctum');
+//Route::get('/user', [\App\Http\Controllers\UserController::class, 'userAuth'])->middleware('auth:sanctum');
 
 Route::get('/properties', [\App\Http\Controllers\PropertyController::class, 'index']);
 Route::get('/properties/outstanding', [\App\Http\Controllers\PropertyController::class, 'outstanding']);
@@ -39,11 +39,15 @@ Route::get('/property-types/all', [\App\Http\Controllers\PropertyTypeController:
 Route::get('/account', [\App\Http\Controllers\AccountController::class, 'index']);
 Route::post('/account', [\App\Http\Controllers\AccountController::class, 'store'])->middleware('auth:sanctum');
 
-
+//FanancialController
 Route::get('/monthly/payments', [\App\Http\Controllers\FinancialController::class, 'monthlyPayments']);
 Route::get('/monthly/budget', [\App\Http\Controllers\FinancialController::class, 'monthlyBudget']);
 Route::get('/monthly2/budget', [\App\Http\Controllers\FinancialController::class, 'monthlyBudget2']);
 Route::get('/affordable/properties', [\App\Http\Controllers\FinancialController::class, 'affordableProperties']);
 Route::get('/affordable2/properties', [\App\Http\Controllers\FinancialController::class, 'affordableProperties2']);
 
+//FinancialCategories
 Route::get('/categories', [\App\Http\Controllers\CategoryController::class, 'index']);
+
+//PriceIndexController
+Route::get('/price-index', [\App\Http\Controllers\PriceIndexController::class, 'index']);
