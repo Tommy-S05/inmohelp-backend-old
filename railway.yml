@@ -1,6 +1,0 @@
-jobs:
-  build:
-    name: Build
-    steps:
-      - run: composer install --prefer-dist --no-progress --no-suggest
-      - run: php artisan migrate --force --seed

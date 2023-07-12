@@ -96,7 +96,7 @@ class FinancialController extends Controller
         $currentPage = $request->input('page', 1); // Obtener la página actual de la solicitud
 
         $query = Property::query()
-            ->select('id', 'name', 'slug', 'city', 'purpose', 'price', 'area', 'bedrooms', 'bathrooms', 'garages')
+            ->select('id', 'name', 'slug', 'province', 'purpose', 'price', 'area', 'bedrooms', 'bathrooms', 'garages')
             ->whereRaw('(' . $this->monthlyPaymentsSql() . ') <= ?', [$available]);
 
         $properties = app(Pipeline::class)
@@ -130,7 +130,7 @@ class FinancialController extends Controller
     //        //            //            ->whereRaw('? <= ?', [50000, $available])
     //        //            ->get();
     //
-    //        $properties = Property::all(['id', 'name', 'slug', 'city', 'purpose', 'price', 'area', 'bedrooms', 'bathrooms', 'garages'])
+    //        $properties = Property::all(['id', 'name', 'slug', 'province', 'purpose', 'price', 'area', 'bedrooms', 'bathrooms', 'garages'])
     //            ->filter(function($property) use ($available) {
     //                $request = new Request();
     //                $request->price = $property->price;
