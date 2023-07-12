@@ -8,7 +8,7 @@ class GaragesFilter
 {
     public function handle($request, Closure $next)
     {
-        if(!request()->has('garages')) {
+        if(!request()->has('garages') || request()->input('garages') == null) {
             return $next($request);
         }
 

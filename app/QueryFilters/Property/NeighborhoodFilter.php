@@ -8,7 +8,7 @@ class NeighborhoodFilter
 {
     public function handle($request, Closure $next)
     {
-        if(!request()->has('neighborhood')) {
+        if(!request()->has('neighborhood') || request()->input('neighborhood') == null) {
             return $next($request);
         }
 

@@ -8,7 +8,7 @@ class ProvinceFilter
 {
     public function handle($request, Closure $next)
     {
-        if(!request()->has('province')) {
+        if(!request()->has('province') || request()->input('province') == null) {
             return $next($request);
         }
 

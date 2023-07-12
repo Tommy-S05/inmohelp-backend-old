@@ -6,7 +6,16 @@ use App\Models\Account;
 use App\Models\AccountTransaction;
 use App\Models\Property;
 use App\Models\Setting;
+use App\QueryFilters\Property\BathroomsFilter;
+use App\QueryFilters\Property\BedroomsFilter;
+use App\QueryFilters\Property\GaragesFilter;
+use App\QueryFilters\Property\MaxPriceFilter;
+use App\QueryFilters\Property\MinPriceFilter;
+use App\QueryFilters\Property\NeighborhoodFilter;
+use App\QueryFilters\Property\ProvinceFilter;
+use App\QueryFilters\Property\PurposeFilter;
 use Illuminate\Http\Request;
+use Illuminate\Pipeline\Pipeline;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -32,9 +41,26 @@ class FinancialController extends Controller
         $periods = $settings->loan_term * 12;
         $interest = (((1 + ($settings->interest_rate / 100)) ** (1 / 12)) - 1);
 
-        $payment = $loan * (($interest * (1 + $interest) ** $periods) / ((1 + $interest) ** $periods - 1));
+        //        $payment = $loan * (($interest * (1 + $interest) ** $periods) / ((1 + $interest) ** $periods - 1));
+        $payment = ($request->price - $settings->down_payment_available) * (($interest * pow((1 + $interest), $periods)) / (pow((1 + $interest), $periods) - 1));
         //        $payment = ($interest * $loan) / (1 - (1 + $interest) ** (-$periods));
         return response()->json($payment);
+    }
+
+    private function monthlyPaymentsSql()
+    {
+        $settings = Setting::where('user_id', 1)->first();
+        $periods = $settings->loan_term * 12;
+        $interest = (((1 + ($settings->interest_rate / 100)) ** (1 / 12)) - 1);
+        $downPayment = $settings->down_payment_available;
+
+        //(((POW((1 + ($interest / 12)), $periods)) * ($interest / 12)) / ((POW((1 + ($interest / 12)), $periods)) - 1))
+        $sql = "CASE
+                WHEN price < $downPayment THEN 0
+                ELSE (price - $downPayment) * (($interest * POW((1 + $interest), $periods)) / (POW((1 + $interest), $periods) - 1))
+            END";
+
+        return $sql;
     }
 
     public function monthlyBudget()
@@ -58,29 +84,65 @@ class FinancialController extends Controller
         return response()->json($available);
     }
 
-    public function affordableProperties()
+
+    public function affordableProperties(Request $request)
     {
         $available = $this->monthlyBudget()->getData();
-        //        $properties = Property::select('*')
-        //            ->whereRaw('monthlyPayments(price) <= ?', [$available])
-        //            //            ->whereRaw('? <= ?', [50000, $available])
-        //            ->get();
 
-        $properties = Property::all()->filter(function($property) use ($available) {
-            $request = new Request();
-            $request->price = $property->price;
-            $monthlyPayments = $this->monthlyPayments($request)->getData();
-            if($monthlyPayments <= $available) {
-                return $property;
-            }
-            return null;
-        })->values();
+        $perPage = $request->input('per_page', 5); // Obtener el número de elementos por página de la solicitud
+        $currentPage = $request->input('page', 1); // Obtener la página actual de la solicitud
+
+        $query = Property::query()
+            ->select('id', 'name', 'slug', 'city', 'purpose', 'price', 'area', 'bedrooms', 'bathrooms', 'garages')
+            ->whereRaw('(' . $this->monthlyPaymentsSql() . ') <= ?', [$available]);
+
+        $properties = app(Pipeline::class)
+            ->send($query)
+            ->through([
+                PurposeFilter::class,
+                ProvinceFilter::class,
+                NeighborhoodFilter::class,
+                BedroomsFilter::class,
+                BathroomsFilter::class,
+                GaragesFilter::class,
+                MinPriceFilter::class,
+                MaxPriceFilter::class,
+            ])
+            ->thenReturn()
+            ->get();
+        //            ->paginate($perPage, ['*'], 'page', $currentPage);
+
         return response()->json([
             'success' => true,
             'message' => 'Affordable properties',
             'data' => $properties
         ]);
     }
+
+    //    public function affordableProperties()
+    //    {
+    //        $available = $this->monthlyBudget()->getData();
+    //        //        $properties = Property::select('*')
+    //        //            ->whereRaw('monthlyPayments(price) <= ?', [$available])
+    //        //            //            ->whereRaw('? <= ?', [50000, $available])
+    //        //            ->get();
+    //
+    //        $properties = Property::all(['id', 'name', 'slug', 'city', 'purpose', 'price', 'area', 'bedrooms', 'bathrooms', 'garages'])
+    //            ->filter(function($property) use ($available) {
+    //                $request = new Request();
+    //                $request->price = $property->price;
+    //                $monthlyPayments = $this->monthlyPayments($request)->getData();
+    //                if($monthlyPayments <= $available) {
+    //                    return $property;
+    //                }
+    //                return null;
+    //            })->values();
+    //        return response()->json([
+    //            'success' => true,
+    //            'message' => 'Affordable properties',
+    //            'data' => $properties
+    //        ]);
+    //    }
 
     public function affordableProperties2()
     {
@@ -134,4 +196,6 @@ class FinancialController extends Controller
     {
         //
     }
+
+
 }

@@ -8,7 +8,7 @@ class BathroomsFilter
 {
     public function handle($request, Closure $next)
     {
-        if(!request()->has('bathrooms')) {
+        if(!request()->has('bathrooms') || request()->input('bathrooms') == null) {
             return $next($request);
         }
 

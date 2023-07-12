@@ -8,7 +8,7 @@ class PurposeFilter
 {
     public function handle($request, Closure $next)
     {
-        if(!request()->has('purpose')) {
+        if(!request()->has('purpose') || request()->input('purpose') == null) {
             return $next($request);
         }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePropertyRequest;
 use App\Http\Requests\UpdatePropertyRequest;
+use Illuminate\Http\Request;
 use App\Models\Property;
 use App\QueryFilters\Property\BathroomsFilter;
 use App\QueryFilters\Property\BedroomsFilter;
@@ -20,10 +21,8 @@ class PropertyController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //        $properties = Property::all(['id', 'name', 'slug', 'city', 'purpose', 'price', 'area', 'bedrooms', 'bathrooms', 'garages']);
-        //        $properties =
         $properties = app(Pipeline::class)
             ->send(Property::query())
             ->through([
@@ -38,6 +37,7 @@ class PropertyController extends Controller
             ])
             ->thenReturn()
             ->get(['id', 'name', 'slug', 'city', 'purpose', 'price', 'area', 'bedrooms', 'bathrooms', 'garages']);
+        //            ->paginate(10, ['id', 'name', 'slug', 'city', 'purpose', 'price', 'area', 'bedrooms', 'bathrooms', 'garages']);
         $data = $properties;
         return response()->json([
             'success' => true,

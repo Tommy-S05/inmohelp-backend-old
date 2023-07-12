@@ -8,7 +8,7 @@ class MinPriceFilter
 {
     public function handle($request, Closure $next)
     {
-        if(!request()->has('min_price')) {
+        if(!request()->has('min_price') || request()->input('min_price') == null) {
             return $next($request);
         }
 
