@@ -14,10 +14,10 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         Category::create([
-            'name' => 'Income',
-            'slug' => 'income',
+            'name' => 'Ingresos',
+            'slug' => 'ingresos',
             'type' => 'income',
-            'description' => 'Descripción de la categoría income',
+            'description' => 'Descripción de la categoría ingresos',
             'active' => true,
         ]);
 

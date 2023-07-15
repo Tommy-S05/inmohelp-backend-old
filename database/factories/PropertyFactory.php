@@ -31,7 +31,7 @@ class PropertyFactory extends Factory
             'neighborhood' => $this->faker->streetName,
             'address' => $this->faker->address,
             //            'map' => $this->faker->url,
-            'purpose' => $this->faker->randomElement(['sale', 'rent']),
+            'purpose' => $this->faker->randomElement(['Venta', 'Alquiler']),
             'price' => $this->faker->numberBetween(1000000, 20000000),
             'area' => $this->faker->numberBetween(50, 500),
             'bedrooms' => $this->faker->numberBetween(1, 5),

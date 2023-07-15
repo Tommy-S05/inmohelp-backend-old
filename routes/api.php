@@ -42,6 +42,7 @@ Route::get('/property-types/all', [\App\Http\Controllers\PropertyTypeController:
 //Route::get('/account', [\App\Http\Controllers\AccountController::class, 'index'])->middleware('auth:sanctum');
 Route::get('/account', [\App\Http\Controllers\AccountController::class, 'index']);
 Route::post('/account', [\App\Http\Controllers\AccountController::class, 'store'])->middleware('auth:sanctum');
+Route::put('/account/{id}', [\App\Http\Controllers\AccountController::class, 'update'])->middleware('auth:sanctum');
 
 //FanancialController
 Route::get('/monthly/payments', [\App\Http\Controllers\FinancialController::class, 'monthlyPayments']);

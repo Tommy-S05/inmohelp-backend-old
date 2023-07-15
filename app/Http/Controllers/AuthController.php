@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
-header('Access-Control-Allow-Credentials: true');
 
+use App\Models\Setting;
+use App\Models\SubCategory;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -72,12 +71,12 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
+
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8'
         ]);
-
         if($validator->fails()) {
             return response()->json([
                 'result' => false,
@@ -93,8 +92,32 @@ class AuthController extends Controller
         ]);
 
         Auth::login($user);
+
+        $account = $user->account()->create([
+            'total_incomes' => 0,
+            'total_expenses' => 0,
+            'budget' => 0,
+        ]);
+
+        $subCategories = SubCategory::all();
+
+        foreach($subCategories as $subCategory) {
+            $results[] = array(
+                "sub_category_id" => $subCategory->id,
+                "amount" => 0,
+            );
+        }
+
+        $account->accountTransactions()->createMany($results);
+        Setting::create([
+            'user_id' => $user->id,
+            'interest_rate' => 12,
+            'down_payment_available' => 0,
+            'loan_term' => 20
+        ]);
+
         $request->session()->regenerate();
-        //            $token = $user->createToken('auth_token')->plainTextToken;
+
         //        $token = $user->createToken('auth_token', ['products.index'])->plainTextToken;
         $token = $user->createToken('auth_token')->plainTextToken;
         return response()->json([

@@ -27,7 +27,7 @@ class PropertySeeder extends Seeder
             'province' => 'Santo Domingo',
             'neighborhood' => 'Piantini',
             'address' => 'direccion de la propiedad',
-            'purpose' => 'sale',
+            'purpose' => 'Venta',
             'price' => 10000000,
             'area' => 200,
             'bedrooms' => 3,

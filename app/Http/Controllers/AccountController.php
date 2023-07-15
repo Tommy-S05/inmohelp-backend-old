@@ -1,9 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
-header('Access-Control-Allow-Credentials: true');
 
 use App\Models\Account;
 use Illuminate\Http\Request;
@@ -25,7 +22,6 @@ class AccountController extends Controller
      */
     public function store(Request $request)
     {
-        //        return response()->json($request->all());
         $budget = $request->total_incomes - $request->total_expenses;
 
         $newAccount = Account::create([
@@ -59,19 +55,36 @@ class AccountController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        //
+        //        $account = Account::where('user_id', Auth::user()->id)
+        //            ->findOrFail($id);
+        $account = Account::where('id', $id)->firstOrFail();
+        $budget = $request->total_incomes - $request->total_expenses;
+
+        $account->update([
+            'total_incomes' => $request->total_incomes,
+            'total_expenses' => $request->total_expenses,
+            'budget' => $budget,
+        ]);
+
+        foreach($request->subCategories as $subCategory) {
+            $results[] = array(
+                "sub_category_id" => $subCategory['subCategory_id'],
+                "amount" => $subCategory['amount'],
+            );
+        }
+
+        $account->accountTransactions()->delete();
+        $account->accountTransactions()->createMany($results);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Account updated successfully',
+            'data' => $account->load('accountTransactions')
+        ], 200);
     }
 
     /**
@@ -79,6 +92,15 @@ class AccountController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        //        $account = Account::where('user_id', Auth::user()->id)
+        //            ->findOrFail($id);
+        $account = Account::where('id', $id)->firstOrFail();
+        $account->accountTransactions()->delete();
+        $account->delete();
+        return response()->json([
+            'success' => true,
+            'message' => 'Account deleted successfully',
+            'data' => ''
+        ], 200);
     }
 }

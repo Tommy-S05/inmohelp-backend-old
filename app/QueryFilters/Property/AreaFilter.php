@@ -14,6 +14,6 @@ class AreaFilter
 
         $builder = $next($request);
 
-        return $builder->where('area', '>=', request()->input('area'));
+        return $builder->where('area', '<=', request()->input('area'));
     }
 }

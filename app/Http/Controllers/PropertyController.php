@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
-header('Access-Control-Allow-Credentials: true');
 
 use App\Http\Requests\StorePropertyRequest;
 use App\Http\Requests\UpdatePropertyRequest;
+use App\QueryFilters\Property\AffordableFilter;
+use App\QueryFilters\Property\AreaFilter;
 use Illuminate\Http\Request;
 use App\Models\Property;
 use App\QueryFilters\Property\BathroomsFilter;
@@ -29,6 +28,8 @@ class PropertyController extends Controller
         $properties = app(Pipeline::class)
             ->send(Property::query())
             ->through([
+                AffordableFilter::class,
+                AreaFilter::class,
                 PurposeFilter::class,
                 ProvinceFilter::class,
                 NeighborhoodFilter::class,
