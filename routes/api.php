@@ -40,9 +40,9 @@ Route::get('/property-types/all', [\App\Http\Controllers\PropertyTypeController:
 //Route::get('/property-features', [\App\Http\Controllers\PropertyFeatureController::class, 'index']);
 
 //Route::get('/account', [\App\Http\Controllers\AccountController::class, 'index'])->middleware('auth:sanctum');
-Route::get('/account', [\App\Http\Controllers\AccountController::class, 'index']);
+Route::get('/account', [\App\Http\Controllers\AccountController::class, 'index'])->middleware('auth:sanctum');
 Route::post('/account', [\App\Http\Controllers\AccountController::class, 'store'])->middleware('auth:sanctum');
-Route::put('/account/{id}', [\App\Http\Controllers\AccountController::class, 'update'])->middleware('auth:sanctum');
+Route::put('/account', [\App\Http\Controllers\AccountController::class, 'update'])->middleware('auth:sanctum');
 
 //FanancialController
 Route::get('/monthly/payments', [\App\Http\Controllers\FinancialController::class, 'monthlyPayments']);
@@ -55,4 +55,4 @@ Route::get('/affordable2/properties', [\App\Http\Controllers\FinancialController
 Route::get('/categories', [\App\Http\Controllers\CategoryController::class, 'index']);
 
 //PriceIndexController
-Route::get('/price-index', [\App\Http\Controllers\PriceIndexController::class, 'index']);
+Route::get('/price-index', [\App\Http\Controllers\PriceIndexController::class, 'index'])->middleware('auth:sanctum');

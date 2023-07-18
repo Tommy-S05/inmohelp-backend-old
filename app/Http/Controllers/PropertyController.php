@@ -56,7 +56,7 @@ class PropertyController extends Controller
         //        $properties = Property::where('outstanding', 1)->get(['id', 'name', 'slug', 'city', 'purpose', 'price', 'area', 'bedrooms', 'bathrooms', 'garages']);
         $properties = Property::orderBy('views', 'desc')
             ->take(5)
-            ->get(['id', 'name', 'slug', 'city', 'purpose', 'price', 'area', 'bedrooms', 'bathrooms', 'garages', 'views']);
+            ->get(['id', 'name', 'slug', 'province', 'purpose', 'price', 'area', 'bedrooms', 'bathrooms', 'garages', 'views']);
         $data = $properties;
         return response()->json([
             'success' => true,

@@ -11,9 +11,9 @@ class AccountController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $accounts = Account::where('user_id', 1)->get();
+        $accounts = Account::where('user_id', Auth::user()->id)->get();
         return response()->json($accounts->load('accountTransactions'));
     }
 
@@ -25,8 +25,8 @@ class AccountController extends Controller
         $budget = $request->total_incomes - $request->total_expenses;
 
         $newAccount = Account::create([
-            //            'user_id' => Auth::user()->id,
-            'user_id' => 1,
+            'user_id' => Auth::user()->id,
+            //            'user_id' => 1,
             'total_incomes' => $request->total_incomes,
             'total_expenses' => $request->total_expenses,
             'budget' => $budget,
@@ -57,11 +57,11 @@ class AccountController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request/*, string $id*/)
     {
-        //        $account = Account::where('user_id', Auth::user()->id)
+        $account = Account::where('user_id', Auth::user()->id)->firstOrFail();
         //            ->findOrFail($id);
-        $account = Account::where('id', $id)->firstOrFail();
+        //        $account = Account::where('id', $id)->firstOrFail();
         $budget = $request->total_incomes - $request->total_expenses;
 
         $account->update([
@@ -94,7 +94,7 @@ class AccountController extends Controller
     {
         //        $account = Account::where('user_id', Auth::user()->id)
         //            ->findOrFail($id);
-        $account = Account::where('id', $id)->firstOrFail();
+        $account = Account::where('user_id', Auth::user()->id)->firstOrFail();
         $account->accountTransactions()->delete();
         $account->delete();
         return response()->json([

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Account;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Neighborhood;
 use App\Models\Setting;
 use App\QueryFilters\PriceIndex\NameFilter;
@@ -37,10 +38,10 @@ class PriceIndexController extends Controller
 
     public function index(Request $request)
     {
-        $settings = Setting::where('user_id', 1)->first();
+        $settings = Setting::where('user_id', Auth::user()->id)->first();
         $downPayment = $settings->down_payment_available;
 
-        $account = Account::where('user_id', 1)->first();
+        $account = Account::where('user_id', Auth::user()->id)->first();
         $available = $account->budget * 0.7;
 
         // Calcular el monto del préstamo

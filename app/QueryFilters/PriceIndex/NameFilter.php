@@ -27,7 +27,8 @@ class NameFilter
         $builder = $next($request);
 
         foreach($names as $name) {
-            $builder->orWhere('name', 'like', '%' . $name . '%');
+            //            $builder->orWhere('name', 'like', '%' . $name . '%');
+            $builder->orWhere('id', '=', $name);
         }
 
         return $builder;
