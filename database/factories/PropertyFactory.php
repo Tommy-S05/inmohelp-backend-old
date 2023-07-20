@@ -35,7 +35,7 @@ class PropertyFactory extends Factory
             'address' => $this->faker->address,
             //            'map' => $this->faker->url,
             'purpose' => $purpose,
-            'price' => ($purpose == 'Venta') ? $this->faker->numberBetween(2000000, 20000000) : $this->faker->numberBetween(50000, 100000),
+            'price' => ($purpose == 'Venta') ? $this->faker->numberBetween(2000000, 20000000) : $this->faker->numberBetween(5000, 50000),
             'area' => $this->faker->numberBetween(50, 500),
             'bedrooms' => $this->faker->numberBetween(1, 5),
             'bathrooms' => $this->faker->numberBetween(1, 4),

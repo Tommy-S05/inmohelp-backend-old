@@ -12,6 +12,6 @@ class ProvinceFilter
             return $next($request);
         }
 
-        return $next($request)->where('province', request()->input('province'));
+        return $next($request)->where('province_id', request()->input('province'));
     }
 }

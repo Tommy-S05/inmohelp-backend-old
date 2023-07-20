@@ -12,6 +12,6 @@ class NeighborhoodFilter
             return $next($request);
         }
 
-        return $next($request)->where('neighborhood', request()->input('neighborhood'));
+        return $next($request)->where('neighborhood_id', request()->input('neighborhood'));
     }
 }

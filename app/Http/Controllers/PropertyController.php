@@ -6,6 +6,7 @@ use App\Http\Requests\StorePropertyRequest;
 use App\Http\Requests\UpdatePropertyRequest;
 use App\QueryFilters\Property\AffordableFilter;
 use App\QueryFilters\Property\AreaFilter;
+use App\QueryFilters\Property\PropertyTypeFilter;
 use Illuminate\Http\Request;
 use App\Models\Property;
 use App\QueryFilters\Property\BathroomsFilter;
@@ -30,8 +31,9 @@ class PropertyController extends Controller
             ->through([
                 AreaFilter::class,
                 PurposeFilter::class,
-                ProvinceFilter::class,
-                NeighborhoodFilter::class,
+                //                PropertyTypeFilter::class,
+                //                ProvinceFilter::class,
+                //                NeighborhoodFilter::class,
                 BedroomsFilter::class,
                 BathroomsFilter::class,
                 GaragesFilter::class,
@@ -57,8 +59,9 @@ class PropertyController extends Controller
                 AffordableFilter::class,
                 AreaFilter::class,
                 PurposeFilter::class,
-                ProvinceFilter::class,
-                NeighborhoodFilter::class,
+                //                PropertyTypeFilter::class,
+                //                ProvinceFilter::class,
+                //                NeighborhoodFilter::class,
                 BedroomsFilter::class,
                 BathroomsFilter::class,
                 GaragesFilter::class,
