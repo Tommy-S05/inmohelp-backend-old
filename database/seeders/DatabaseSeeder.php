@@ -30,6 +30,6 @@ class DatabaseSeeder extends Seeder
             NeighborhoodSeeder::class,
             AccountSeeder::class,
         ]);
-        Property::factory(15)->create();
+        Property::factory(20)->create();
     }
 }

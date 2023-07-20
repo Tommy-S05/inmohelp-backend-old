@@ -18,8 +18,8 @@ return new class extends Migration {
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->foreignId('property_type_id')->constrained('property_types')->cascadeOnDelete();
             $table->longText('description')->nullable();
-            $table->string('province');
-            $table->string('neighborhood');
+            $table->foreignId('province_id')->constrained('provinces');
+            $table->foreignId('neighborhood_id')->constrained('neighborhoods');
             $table->string('address')->nullable();
             $table->text('map')->nullable();
             $table->enum('purpose', ['Venta', 'Alquiler']);

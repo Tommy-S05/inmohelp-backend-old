@@ -39,7 +39,7 @@ class PropertyController extends Controller
                 MaxPriceFilter::class,
             ])
             ->thenReturn()
-            ->get(['id', 'name', 'slug', 'province', 'purpose', 'price', 'area', 'bedrooms', 'bathrooms', 'garages']);
+            ->get(['id', 'name', 'slug', 'province_id', 'purpose', 'price', 'area', 'bedrooms', 'bathrooms', 'garages']);
         //            ->paginate(10, ['id', 'name', 'slug', 'city', 'purpose', 'price', 'area', 'bedrooms', 'bathrooms', 'garages']);
         $data = $properties;
         return response()->json([
@@ -66,7 +66,7 @@ class PropertyController extends Controller
                 MaxPriceFilter::class,
             ])
             ->thenReturn()
-            ->get(['id', 'name', 'slug', 'province', 'purpose', 'price', 'area', 'bedrooms', 'bathrooms', 'garages']);
+            ->get(['id', 'name', 'slug', 'province_id', 'purpose', 'price', 'area', 'bedrooms', 'bathrooms', 'garages']);
         $data = $properties;
         return response()->json([
             'success' => true,
