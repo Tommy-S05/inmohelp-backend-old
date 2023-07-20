@@ -29,7 +29,7 @@ class AuthController extends Controller
 
         if(Auth::attempt($request->only('email', 'password'))) {
             //            $permissionName = array();
-            $request->session()->regenerate();
+            //            $request->session()->regenerate();
             $user = User::where('email', '=', $request['email'])->firstOrFail();
             //            //                $token = $user->createToken('auth_token')->plainTextToken;
             //            $permissions = $user->getAllPermissions();
@@ -58,9 +58,9 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         auth()->user()->tokens()->delete();
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        //        Auth::logout();
+        //        $request->session()->invalidate();
+        //        $request->session()->regenerateToken();
 
         return response()->json([
             'result' => true,
@@ -91,7 +91,7 @@ class AuthController extends Controller
             'password' => Hash::make($request->password)
         ]);
 
-        Auth::login($user);
+        //        Auth::login($user);
 
         $account = $user->account()->create([
             'total_incomes' => 0,
@@ -116,7 +116,7 @@ class AuthController extends Controller
             'loan_term' => 20
         ]);
 
-        $request->session()->regenerate();
+        //        $request->session()->regenerate();
 
         //        $token = $user->createToken('auth_token', ['products.index'])->plainTextToken;
         $token = $user->createToken('auth_token')->plainTextToken;

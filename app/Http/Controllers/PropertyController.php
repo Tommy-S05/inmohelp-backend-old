@@ -28,7 +28,6 @@ class PropertyController extends Controller
         $properties = app(Pipeline::class)
             ->send(Property::query())
             ->through([
-                AffordableFilter::class,
                 AreaFilter::class,
                 PurposeFilter::class,
                 ProvinceFilter::class,
@@ -42,6 +41,32 @@ class PropertyController extends Controller
             ->thenReturn()
             ->get(['id', 'name', 'slug', 'province', 'purpose', 'price', 'area', 'bedrooms', 'bathrooms', 'garages']);
         //            ->paginate(10, ['id', 'name', 'slug', 'city', 'purpose', 'price', 'area', 'bedrooms', 'bathrooms', 'garages']);
+        $data = $properties;
+        return response()->json([
+            'success' => true,
+            'message' => 'Properties retrieved successfully.',
+            'data' => $data,
+        ]);
+    }
+
+    public function affordableProperties()
+    {
+        $properties = app(Pipeline::class)
+            ->send(Property::query())
+            ->through([
+                AffordableFilter::class,
+                AreaFilter::class,
+                PurposeFilter::class,
+                ProvinceFilter::class,
+                NeighborhoodFilter::class,
+                BedroomsFilter::class,
+                BathroomsFilter::class,
+                GaragesFilter::class,
+                MinPriceFilter::class,
+                MaxPriceFilter::class,
+            ])
+            ->thenReturn()
+            ->get(['id', 'name', 'slug', 'province', 'purpose', 'price', 'area', 'bedrooms', 'bathrooms', 'garages']);
         $data = $properties;
         return response()->json([
             'success' => true,

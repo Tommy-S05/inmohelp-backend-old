@@ -26,23 +26,30 @@ Route::middleware('auth:sanctum')->get('/user', function(Request $request) {
 //Route::get('/user', [\App\Http\Controllers\UserController::class, 'userAuth'])->middleware('auth:sanctum');
 
 Route::get('/properties', [\App\Http\Controllers\PropertyController::class, 'index']);
+Route::get('/properties/affordable', [\App\Http\Controllers\PropertyController::class, 'affordableProperties'])
+    ->middleware('auth:sanctum');
 Route::get('/properties/outstanding', [\App\Http\Controllers\PropertyController::class, 'outstanding']);
 Route::post('/properties', [\App\Http\Controllers\PropertyController::class, 'store']);
 Route::get('/properties/{property}', [\App\Http\Controllers\PropertyController::class, 'show']);
 
-//Route::post('/login', [App\Http\Controllers\AuthController::class, 'login']);
-//Route::post('/register', [App\Http\Controllers\AuthController::class, 'register']);
-//Route::delete('/logout', [App\Http\Controllers\AuthController::class, 'logout'])->middleware('auth:sanctum');
+Route::post('/login', [App\Http\Controllers\AuthController::class, 'login']);
+Route::post('/register', [App\Http\Controllers\AuthController::class, 'register']);
+Route::post('/logout', [App\Http\Controllers\AuthController::class, 'logout'])->middleware('auth:sanctum');
 
 Route::get('/property-types', [\App\Http\Controllers\PropertyTypeController::class, 'index']);
 Route::get('/property-types/all', [\App\Http\Controllers\PropertyTypeController::class, 'getAll']);
 
 //Route::get('/property-features', [\App\Http\Controllers\PropertyFeatureController::class, 'index']);
 
+//AccountController
 //Route::get('/account', [\App\Http\Controllers\AccountController::class, 'index'])->middleware('auth:sanctum');
 Route::get('/account', [\App\Http\Controllers\AccountController::class, 'index'])->middleware('auth:sanctum');
 Route::post('/account', [\App\Http\Controllers\AccountController::class, 'store'])->middleware('auth:sanctum');
 Route::put('/account', [\App\Http\Controllers\AccountController::class, 'update'])->middleware('auth:sanctum');
+
+//SettingController
+Route::get('/settings', [\App\Http\Controllers\SettingController::class, 'index'])->middleware('auth:sanctum');
+Route::put('/settings', [\App\Http\Controllers\SettingController::class, 'update'])->middleware('auth:sanctum');
 
 //FanancialController
 Route::get('/monthly/payments', [\App\Http\Controllers\FinancialController::class, 'monthlyPayments']);

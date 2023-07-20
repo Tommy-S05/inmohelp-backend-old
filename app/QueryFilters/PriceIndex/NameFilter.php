@@ -32,7 +32,5 @@ class NameFilter
         }
 
         return $builder;
-
-        return $next($request)->where('name', 'like', '%' . request('name') . '%');
     }
 }

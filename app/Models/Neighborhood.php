@@ -12,4 +12,11 @@ use Illuminate\Database\Eloquent\Builder;
 class Neighborhood extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
+    public function municipality()
+    {
+        return $this->belongsTo(Municipality::class);
+    }
 }

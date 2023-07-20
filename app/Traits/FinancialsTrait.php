@@ -5,6 +5,7 @@ namespace App\Traits;
 use App\Models\Account;
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 trait FinancialsTrait
 {
@@ -42,15 +43,16 @@ trait FinancialsTrait
 
     public function monthlyBudget()
     {
-        //        $accounts = Account::where('user_id', Auth::user()->id)->get();
-        $account = Account::where('user_id', 1)->first();
+        $account = Account::where('user_id', Auth::user()->id)->first();
+        //        $account = Account::where('user_id', 1)->first();
         $available = $account->budget * 0.7;
         return response()->json($available);
     }
 
     public function monthlyBudget2()
     {
-        $account = Account::where('user_id', 1)->first();
+        $account = Account::where('user_id', Auth::user()->id)->first();
+        //        $account = Account::where('user_id', 1)->first();
         $available = $account->total_incomes * 0.28;
         $houseSpend = $account->accountTransactions()
             ->join('sub_categories', 'account_transactions.sub_category_id', '=', 'sub_categories.id')

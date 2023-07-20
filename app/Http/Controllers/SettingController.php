@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Setting;
 use App\Http\Requests\StoreSettingRequest;
 use App\Http\Requests\UpdateSettingRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SettingController extends Controller
 {
@@ -13,29 +15,14 @@ class SettingController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        $setting = Setting::where('user_id', Auth::user()->id)->firstOrFail();
+        return response()->json($setting);
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(StoreSettingRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Setting $setting)
     {
         //
     }
@@ -51,9 +38,15 @@ class SettingController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateSettingRequest $request, Setting $setting)
+    public function update(Request $request/*, Setting $setting*/)
     {
-        //
+        $setting = Setting::where('user_id', Auth::user()->id)->firstOrFail();
+        $setting->update($request->all());
+        return response()->json([
+            'success' => true,
+            'message' => 'Setting updated successfully',
+            'data' => $setting
+        ], 200);
     }
 
     /**

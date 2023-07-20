@@ -14,6 +14,9 @@ class AffordableFilter
 
         if(request()->has('affordable') && request()->input('affordable') == 'true') {
             $available = $this->monthlyBudget()->getData();
+            if(request()->has('purpose') && request()->input('purpose') == 'alquiler') {
+                return $next($request)->where('price', '<=', $available);
+            }
 
             return $next($request)->whereRaw('(' . $this->monthlyPaymentsSql() . ') <= ?', [$available]);
         }

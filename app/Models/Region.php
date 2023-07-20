@@ -12,4 +12,11 @@ use Illuminate\Database\Eloquent\Builder;
 class Region extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
+    public function provinces()
+    {
+        return $this->hasMany(Province::class);
+    }
 }
