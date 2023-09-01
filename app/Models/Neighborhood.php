@@ -13,7 +13,10 @@ class Neighborhood extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'name',
+        'municipality_id',
+    ];
 
     public function municipality()
     {

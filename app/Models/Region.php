@@ -13,7 +13,9 @@ class Region extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'name',
+    ];
 
     public function provinces()
     {

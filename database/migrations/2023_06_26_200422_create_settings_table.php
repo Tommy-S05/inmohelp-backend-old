@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->float('interest_rate', 8, 2)->default(0.00);
             $table->float('down_payment_available', 16, 4)->default(0.00);
             $table->integer('loan_term')->default(0);
+            $table->boolean('is_active')->default(true);
             //            $table->decimal('down_payment_required', 2, 2)->default(0.00);
             //            $table->decimal('closing_cost', 2, 2)->default(0.00);
             //            $table->decimal('property_tax', 2, 2)->default(0.00);

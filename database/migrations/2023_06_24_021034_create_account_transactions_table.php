@@ -17,7 +17,7 @@ return new class extends Migration {
             //            $table->enum('sign', [1, -1]);
             $table->float('amount', 16, 6);
             $table->string('description')->nullable();
-            $table->boolean('active')->default(true);
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

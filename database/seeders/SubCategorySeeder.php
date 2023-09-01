@@ -20,7 +20,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Salario',
             'slug' => 'salario',
             'description' => 'Descripción de la subcategoría salario',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -29,7 +29,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Inversiones',
             'slug' => 'inversiones',
             'description' => 'Descripción de la subcategoría inversiones',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -38,7 +38,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Bonificaciones',
             'slug' => 'bonificaciones',
             'description' => 'Descripción de la subcategoría bonificaciones',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -47,7 +47,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Manuntención Infantil',
             'slug' => 'manuntencion-infantil',
             'description' => 'Descripción de la subcategoría manuntención infantil',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -56,7 +56,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Pagos de Prestaciones',
             'slug' => 'pagos-de-prestaciones',
             'description' => 'Descripción de la subcategoría pagos de prestaciones',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -65,7 +65,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Otros ingresos',
             'slug' => 'otros-ingresos',
             'description' => 'Descripción de la subcategoría otros ingresos',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         // Expense
@@ -76,7 +76,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Alquiler',
             'slug' => 'alquiler',
             'description' => 'Descripción de la subcategoría alquiler',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -85,7 +85,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Hipoteca',
             'slug' => 'hipoteca',
             'description' => 'Descripción de la subcategoría hipoteca',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -94,7 +94,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Agua',
             'slug' => 'agua',
             'description' => 'Descripción de la subcategoría agua',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -103,7 +103,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Luz',
             'slug' => 'luz',
             'description' => 'Descripción de la subcategoría luz',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -112,7 +112,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Gas',
             'slug' => 'gas',
             'description' => 'Descripción de la subcategoría gas',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -121,7 +121,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Internet',
             'slug' => 'internet',
             'description' => 'Descripción de la subcategoría internet',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -130,7 +130,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Teléfono',
             'slug' => 'telefono',
             'description' => 'Descripción de la subcategoría teléfono',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -139,7 +139,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Móvil',
             'slug' => 'movil',
             'description' => 'Descripción de la subcategoría móvil',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -148,7 +148,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Reparaciones y Mantenimiento',
             'slug' => 'reparaciones-y-mantenimiento',
             'description' => 'Descripción de la subcategoría reparaciones y mantenimiento',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -157,7 +157,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Muebles y Electrodomésticos',
             'slug' => 'muebles-y-electrodomesticos',
             'description' => 'Descripción de la subcategoría muebles y electrodomésticos',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -166,7 +166,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Otros gastos de hogar',
             'slug' => 'otros-gastos-de-hogar',
             'description' => 'Descripción de la subcategoría otros gastos de hogar',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         //Seguros y Finanzas
@@ -176,7 +176,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Seguro de Vida',
             'slug' => 'seguro-de-vida',
             'description' => 'Descripción de la subcategoría seguro de vida',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -185,7 +185,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Seguro de salud',
             'slug' => 'seguro-de-salud',
             'description' => 'Descripción de la subcategoría seguro de salud',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -194,7 +194,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Seguro de Auto',
             'slug' => 'seguro-de-auto',
             'description' => 'Descripción de la subcategoría seguro de auto',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -203,7 +203,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Seguro de Hogar',
             'slug' => 'seguro-de-hogar',
             'description' => 'Descripción de la subcategoría seguro de hogar',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -212,7 +212,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Préstamo de Auto',
             'slug' => 'prestamo-de-auto',
             'description' => 'Descripción de la subcategoría prestamo de auto',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -221,7 +221,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Préstamos Personales',
             'slug' => 'prestamos-personales',
             'description' => 'Descripción de la subcategoría prestamos personales',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -230,7 +230,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Préstamo Estudiantil',
             'slug' => 'prestamo-estudiantil',
             'description' => 'Descripción de la subcategoría prestamo estudiantil',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -239,7 +239,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Otros préstamos',
             'slug' => 'otros-prestamos',
             'description' => 'Descripción de la subcategoría otros préstamos',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -248,7 +248,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Pago de Tarjeta de Crédito',
             'slug' => 'pago-de-tarjeta-de-credito',
             'description' => 'Descripción de la subcategoría pago de tarjeta de crédito',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -257,7 +257,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Pago de otras deudas',
             'slug' => 'pago-de-otras-deudas',
             'description' => 'Descripción de la subcategoría pago de otras deudas',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -266,7 +266,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Otros gastos de seguros y deudas',
             'slug' => 'otros-gastos-de-seguros-y-deudas',
             'description' => 'Descripción de la subcategoría otros gastos de seguros y deudas',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         //Comestibles
@@ -276,7 +276,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Supermercado',
             'slug' => 'supermercado',
             'description' => 'Descripción de la subcategoría supermercado',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -285,7 +285,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Carniceria',
             'slug' => 'carniceria',
             'description' => 'Descripción de la subcategoría carniceria',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -294,7 +294,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Mercado',
             'slug' => 'mercado',
             'description' => 'Descripción de la subcategoría mercado',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -303,7 +303,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Panadería',
             'slug' => 'panaderia',
             'description' => 'Descripción de la subcategoría panaderia',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -312,7 +312,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Alimentos para mascotas',
             'slug' => 'alimentos-para-mascotas',
             'description' => 'Descripción de la subcategoría alimentos para mascotas',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -321,7 +321,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Otros comestibles',
             'slug' => 'otros-comestibles',
             'description' => 'Descripción de la subcategoría otros comestibles',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         //Personales y Medicos
@@ -331,7 +331,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Peluquería y belleza',
             'slug' => 'ropa',
             'description' => 'Descripción de la subcategoría ropa',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -340,7 +340,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Spa',
             'slug' => 'spa',
             'description' => 'Descripción de la subcategoría spa',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -349,7 +349,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Medicamentos y farmacia',
             'slug' => 'medicamentos-y-farmacia',
             'description' => 'Descripción de la subcategoría medicamentos y farmacia',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -358,7 +358,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Medicos y dentistas',
             'slug' => 'medicos-y-dentistas',
             'description' => 'Descripción de la subcategoría medicos y dentistas',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -367,7 +367,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Gafas y cuidado de la vista',
             'slug' => 'gafas-y-cuidado-de-la-vista',
             'description' => 'Descripción de la subcategoría gafas y cuidado de la vista',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -376,7 +376,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Hobbies',
             'slug' => 'hobbies',
             'description' => 'Descripción de la subcategoría hobbies',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -385,7 +385,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Ropa y calzado',
             'slug' => 'ropa-y-calzado',
             'description' => 'Descripción de la subcategoría ropa y calzado',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -394,7 +394,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Joyas y accesorios',
             'slug' => 'joyas-y-accesorios',
             'description' => 'Descripción de la subcategoría joyas y accesorios',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -403,7 +403,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Computadoras y artefactos',
             'slug' => 'computadoras-y-artefactos',
             'description' => 'Descripción de la subcategoría computadoras y artefactos',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -412,7 +412,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Gimnasio y deportes',
             'slug' => 'gimnasio-y-deportes',
             'description' => 'Descripción de la subcategoría gimnasio y deportes',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -421,7 +421,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Eduación',
             'slug' => 'educacion',
             'description' => 'Descripción de la subcategoría educación',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -430,7 +430,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Cuidado de Mascotas y veterinaria',
             'slug' => 'cuidado-de-mascotas-y-veterinaria',
             'description' => 'Descripción de la subcategoría cuidado de mascotas y veterinaria',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -439,7 +439,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Otros gastos personales y médicos',
             'slug' => 'otros-gastos-personales-y-medicos',
             'description' => 'Descripción de la subcategoría otros gastos personales y médicos',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         //Entretenimiento y diversión
@@ -449,7 +449,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Viajes y vacaciones',
             'slug' => 'viajes-y-vacaciones',
             'description' => 'Descripción de la subcategoría viajes y vacaciones',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -458,7 +458,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Cine',
             'slug' => 'cine',
             'description' => 'Descripción de la subcategoría cine',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -467,7 +467,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Teatro',
             'slug' => 'teatro',
             'description' => 'Descripción de la subcategoría teatro',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -476,7 +476,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Concierto',
             'slug' => 'concierto',
             'description' => 'Descripción de la subcategoría concierto',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -485,7 +485,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Café',
             'slug' => 'cafe',
             'description' => 'Descripción de la subcategoría café',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -494,7 +494,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Restaurante',
             'slug' => 'restaurante',
             'description' => 'Descripción de la subcategoría restaurante',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -503,7 +503,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Bares y discotecas',
             'slug' => 'bares-y-discotecas',
             'description' => 'Descripción de la subcategoría bares y discotecas',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -512,7 +512,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Bebidas y Alcohol',
             'slug' => 'bebidas-y-alcohol',
             'description' => 'Descripción de la subcategoría bebidas y alcohol',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -521,7 +521,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Cigarrillos',
             'slug' => 'cigarrillos',
             'description' => 'Descripción de la subcategoría cigarrillos',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -530,7 +530,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Libros',
             'slug' => 'libros',
             'description' => 'Descripción de la subcategoría libros',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -539,7 +539,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Revistas y periódicos',
             'slug' => 'revistas-y-periodicos',
             'description' => 'Descripción de la subcategoría revistas y periódicos',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -548,7 +548,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Suscripciones',
             'slug' => 'suscripciones',
             'description' => 'Descripción de la subcategoría suscripciones',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -557,7 +557,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Celebraciones y regalos',
             'slug' => 'celebraciones-y-regalos',
             'description' => 'Descripción de la subcategoría celebraciones y regalos',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -566,7 +566,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Otros gastos de entretenimiento y diversión',
             'slug' => 'otros-gastos-de-entretenimiento-y-diversion',
             'description' => 'Descripción de la subcategoría otros gastos de entretenimiento y diversión',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         //Transporte
@@ -576,7 +576,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Transporte público',
             'slug' => 'transporte-publico',
             'description' => 'Descripción de la subcategoría transporte público',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -585,7 +585,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Taxi',
             'slug' => 'taxi',
             'description' => 'Descripción de la subcategoría taxi',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -594,7 +594,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Gasolina',
             'slug' => 'gasolina',
             'description' => 'Descripción de la subcategoría gasolina',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -603,7 +603,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Mantenimiento y Reparación de automóvil',
             'slug' => 'mantenimiento-y-reparacion-de-automovil',
             'description' => 'Descripción de la subcategoría mantenimiento y reparación de automóvil',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -612,7 +612,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Peajes y estacionamientos',
             'slug' => 'peajes-y-estacionamientos',
             'description' => 'Descripción de la subcategoría peajes y estacionamientos',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -621,7 +621,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Otros gastos de transporte',
             'slug' => 'otros-gastos-de-transporte',
             'description' => 'Descripción de la subcategoría otros gastos de transporte',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         //Niños
@@ -631,7 +631,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Pago de manutención',
             'slug' => 'pago-de-manutencion',
             'description' => 'Descripción de la subcategoría pago de manutención',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -640,7 +640,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Pagos escolares',
             'slug' => 'pagos-escolares',
             'description' => 'Descripción de la subcategoría pagos escolares',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -649,7 +649,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Uniformes escolares',
             'slug' => 'uniformes-escolares',
             'description' => 'Descripción de la subcategoría uniformes escolares',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -658,7 +658,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Utiles escolares',
             'slug' => 'utiles-escolares',
             'description' => 'Descripción de la subcategoría utiles escolares',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -667,7 +667,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Niñera',
             'slug' => 'ninera',
             'description' => 'Descripción de la subcategoría niñera',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -676,7 +676,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Productos para bebé',
             'slug' => 'productos-para-bebe',
             'description' => 'Descripción de la subcategoría productos para bebé',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -685,7 +685,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Juguetes',
             'slug' => 'juguetes',
             'description' => 'Descripción de la subcategoría juguetes',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -694,7 +694,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Actividades deportivas',
             'slug' => 'actividades-deportivas',
             'description' => 'Descripción de la subcategoría actividades deportivas',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         SubCategory::create([
@@ -703,7 +703,7 @@ class SubCategorySeeder extends Seeder
             'name' => 'Otros gastos de niños',
             'slug' => 'otros-gastos-de-ninos',
             'description' => 'Descripción de la subcategoría otros gastos de niños',
-            'active' => true,
+            'is_active' => true,
         ]);
     }
 }

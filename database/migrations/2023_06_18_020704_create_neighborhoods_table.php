@@ -13,14 +13,14 @@ return new class extends Migration {
         Schema::create('neighborhoods', function(Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->string('code');
-            $table->string('identifier');
-            //            $table->foreignId('municipality_id')->constrained();
+            //            $table->string('code');
+            //            $table->string('identifier');
             $table->float('averagePrice')->nullable();
+            $table->foreignId('municipality_id')->constrained()->cascadeOnDelete();
             //            $table->string('slug')->unique();
-            $table->string('municipalityCode');
-            $table->string('provinceCode');
-            $table->string('regionCode');
+            //            $table->string('municipalityCode');
+            //            $table->string('provinceCode');
+            //            $table->string('regionCode');
             $table->timestamps();
         });
     }

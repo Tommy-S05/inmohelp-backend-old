@@ -20,7 +20,7 @@ class PropertyTypeSeeder extends Seeder
             'slug' => 'departamento',
             'description' => 'Departamento de 1 piso',
             'image' => '/assets/categories/category-departamento.png',
-            'status' => 'ACTIVE'
+            'is_active' => true
         ]);
 
         PropertyType::create([
@@ -29,7 +29,7 @@ class PropertyTypeSeeder extends Seeder
             'slug' => 'casa',
             'description' => 'Casa de 1 piso',
             'image' => '/assets/categories/category-casa.png',
-            'status' => 'ACTIVE'
+            'is_active' => true
         ]);
 
         PropertyType::create([
@@ -38,7 +38,7 @@ class PropertyTypeSeeder extends Seeder
             'slug' => 'comercios',
             'description' => 'Comercios',
             'image' => '/assets/categories/category-comercios.png',
-            'status' => 'ACTIVE'
+            'is_active' => true
         ]);
 
         PropertyType::create([
@@ -47,7 +47,7 @@ class PropertyTypeSeeder extends Seeder
             'slug' => 'countries',
             'description' => 'countries',
             'image' => '/assets/categories/category-countries.png',
-            'status' => 'ACTIVE'
+            'is_active' => true
         ]);
 
         PropertyType::create([
@@ -56,7 +56,7 @@ class PropertyTypeSeeder extends Seeder
             'slug' => 'hoteles',
             'description' => 'hoteles',
             'image' => '/assets/categories/category-hotel.png',
-            'status' => 'ACTIVE'
+            'is_active' => true
         ]);
 
         PropertyType::create([
@@ -65,7 +65,7 @@ class PropertyTypeSeeder extends Seeder
             'slug' => 'universidades',
             'description' => 'universidades',
             'image' => '/assets/categories/category-universidad.png',
-            'status' => 'ACTIVE'
+            'is_active' => true
         ]);
 
         PropertyType::create([
@@ -73,7 +73,7 @@ class PropertyTypeSeeder extends Seeder
             'slug' => Str::slug('Casa de Verano', '-'),
             'description' => 'casa de verano',
             'image' => '/assets/categories/category-casadeverano.png',
-            'status' => 'ACTIVE'
+            'is_active' => true
         ]);
 
         PropertyType::create([
@@ -82,7 +82,7 @@ class PropertyTypeSeeder extends Seeder
             'slug' => 'almacenes',
             'description' => 'almacenes',
             'image' => '/assets/categories/category-almacenes2.png',
-            'status' => 'ACTIVE'
+            'is_active' => true
         ]);
 
         //        PropertyType::create([

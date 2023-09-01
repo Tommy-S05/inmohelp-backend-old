@@ -18,7 +18,7 @@ class PropertyType extends Model
         'slug',
         'description',
         'image',
-        'status',
+        'is_active',
     ];
 
     public function properties()

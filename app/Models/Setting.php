@@ -13,7 +13,13 @@ class Setting extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'user_id',
+        'interest_rate',
+        'down_payment_available',
+        'loan_term',
+        'is_active',
+    ];
 
     public function user()
     {

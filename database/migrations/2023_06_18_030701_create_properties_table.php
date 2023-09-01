@@ -43,6 +43,7 @@ return new class extends Migration {
             //            $table->integer('favorites')->default(0)->nullable();
             //            $table->integer('visits')->default(0)->nullable();
             $table->date('published_at')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

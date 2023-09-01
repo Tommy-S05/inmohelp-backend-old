@@ -13,7 +13,12 @@ class Account extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'user_id',
+        'total_incomes',
+        'total_expenses',
+        'budget',
+    ];
 
     public function accountTransactions()
     {

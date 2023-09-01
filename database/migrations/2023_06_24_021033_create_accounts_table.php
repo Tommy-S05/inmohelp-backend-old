@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->float('total_expenses', 16, 6);
             $table->float('budget', 16, 6);
             //            $table->string('description')->nullable();
-            $table->boolean('active')->default(true);
+            $table->boolean('is_active')->default(true);
             //            $table->date('date');
             $table->timestamps();
         });

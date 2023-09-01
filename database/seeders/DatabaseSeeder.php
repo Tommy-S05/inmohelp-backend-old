@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory()->create([
             'name' => 'Test User',
             'email' => 'elberg@hotmail.com',
+            'username' => 'elberg',
         ]);
         $this->call([
             PropertyTypeSeeder::class,

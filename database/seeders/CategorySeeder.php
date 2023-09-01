@@ -18,7 +18,7 @@ class CategorySeeder extends Seeder
             'slug' => 'ingresos',
             'type' => 'income',
             'description' => 'Descripción de la categoría ingresos',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         Category::create([
@@ -26,7 +26,7 @@ class CategorySeeder extends Seeder
             'slug' => 'hogar-y-servicios-públicos',
             'type' => 'expense',
             'description' => 'Descripción de la categoría hogar',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         Category::create([
@@ -34,7 +34,7 @@ class CategorySeeder extends Seeder
             'slug' => 'seguro-y-deudas',
             'type' => 'expense',
             'description' => 'Descripción de la categoría Seguros y Deudas',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         Category::create([
@@ -42,7 +42,7 @@ class CategorySeeder extends Seeder
             'slug' => 'comestibles',
             'type' => 'expense',
             'description' => 'Descripción de la categoría comestibles',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         Category::create([
@@ -50,7 +50,7 @@ class CategorySeeder extends Seeder
             'slug' => 'personales-y-médicos',
             'type' => 'expense',
             'description' => 'Descripción de la categoría Personales y Médicos',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         Category::create([
@@ -58,7 +58,7 @@ class CategorySeeder extends Seeder
             'slug' => 'entretenimiento-y-diversion',
             'type' => 'expense',
             'description' => 'Descripción de la categoría Entretenimiento y Diversión',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         Category::create([
@@ -66,7 +66,7 @@ class CategorySeeder extends Seeder
             'slug' => 'transporte',
             'type' => 'expense',
             'description' => 'Descripción de la categoría transporte',
-            'active' => true,
+            'is_active' => true,
         ]);
 
         Category::create([
@@ -74,7 +74,7 @@ class CategorySeeder extends Seeder
             'slug' => 'niños',
             'type' => 'expense',
             'description' => 'Descripción de la categoría niños',
-            'active' => true,
+            'is_active' => true,
         ]);
     }
 }

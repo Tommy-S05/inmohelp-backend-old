@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->string('slug')->unique();
             $table->enum('type', ['income', 'expense']);
             $table->string('description')->nullable();
-            $table->boolean('active')->default(true);
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }
